@@ -17,5 +17,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('api/province', 'ApiController@get_all_province');
-Route::post('api/province/add_province', 'ApiController@insert_data_province');
+// Route::get('api/province', 'ApiController@get_all_province');
+// Route::post('api/province/add_province', 'ApiController@insert_data_province');
