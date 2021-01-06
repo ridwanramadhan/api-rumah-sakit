@@ -2,9 +2,9 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Http\Request; //new Laravel 7 HTTP Client
-use App\Province;
+use App\City;
 
-class ProvinceSeeder extends Seeder
+class CitySeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,24 +13,27 @@ class ProvinceSeeder extends Seeder
      */
     public function run()
     {
-        Province::truncate();//kosongkan table
+        City::truncate();//kosongkan table
 
         $key = '1038a79bb33afe1a1ba54d070f900a6e';
-        $province_url = 'https://api.rajaongkir.com/starter/province';
+        $city_url = 'https://api.rajaongkir.com/starter/city';
 
         //logic untuk get province and city
-        $getProvinces = $this->getData($key,$province_url);
-        $provinces = $getProvinces['rajaongkir']['results'];
+        $getCities = $this->getData($key,$city_url);
+        $cities = $getCities['rajaongkir']['results'];
 
-        foreach($provinces as $province){
+        foreach($cities as $city){
             $data[] = [
-                'id' => $province['province_id'],
-                'nama_provinsi' => $province['province'],
+                'id' => $city['city_id'],
+                'nama_kota' => $city['city_name'],
+                'id_provinsi' => $city['province_id'],
+                'jenis' => $city['type'],
+                'kode_pos' => $city['postal_code'],
                 'created_at' => date('Y-m-d H:i:s')
             ];
         }
 
-        Province::insert($data);
+        City::insert($data);
     }
 
     //function untuk get data province and city

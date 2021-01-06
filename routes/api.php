@@ -18,11 +18,14 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::get('/province', 'ProvinceController@get_all_province');
-Route::get('/province/{id}', 'ProvinceController@get_by_id');
-Route::post('/province', 'ProvinceController@insert_data_province');
-Route::put('/province/{id}', 'ProvinceController@update_data_province');
-Route::delete('/province/{id}', 'ProvinceController@delete_data_province');
+Route::get('/province', 'ApiController@get_all_province');
+Route::get('/city', 'ApiController@get_all_city');
+
+
+// Route::get('/province/{id}', 'ProvinceController@get_by_id');
+// Route::post('/province', 'ProvinceController@insert_data_province');
+// Route::put('/province/{id}', 'ProvinceController@update_data_province');
+// Route::delete('/province/{id}', 'ProvinceController@delete_data_province');
 
 // Route::post('/products', function () {
 //     return response()->json(
