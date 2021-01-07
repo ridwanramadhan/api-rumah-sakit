@@ -25,3 +25,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/provinsi', 'ProvinceController@get_all_province')->name('provinsi');
 // Route::get('/getCity/ajax/{id}', 'ProvinceController@get_by_id');
 Route::get('/kota', 'CityController@get_all_city')->name('kota');
+Route::get('/rumah-sakit', 'HospitalController@get_all_hospital')->name('rumah-sakit');
