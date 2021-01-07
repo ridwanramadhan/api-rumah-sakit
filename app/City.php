@@ -10,8 +10,8 @@ class City extends Model
 
     protected $hidden = ['created_at', 'updated_at'];
 
-    // public function provinsi()
-    // {
-    //     return $this->belongsTo('App\Province', 'id_provinsi');
-    // }
+    public function provinsi()
+    {
+        return $this->belongsTo('App\Province', 'id_provinsi');
+    }
 }

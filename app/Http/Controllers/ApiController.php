@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Province;
 use App\City;
 
@@ -20,7 +21,12 @@ class ApiController extends Controller
 
     public function get_all_city(){
         // return response()->json(Province::all(), 200);
-        $daftar_kota = City::all();
+        // $daftar_kota = City::all();
+        $daftar_kota = City::join('province', 'city.id_provinsi', '=', 'province.id')->get();
+        // $daftar_kota = DB::table('city')
+        //     ->join('province', 'city.id_provinsi', '=', 'province.id')
+        //     ->select('city.*', 'province.nama_provinsi')
+        //     ->get();
         return response([
             'status' => true,
             'message' => 'Daftar Kota',

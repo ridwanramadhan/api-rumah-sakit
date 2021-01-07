@@ -10,8 +10,8 @@ class Province extends Model
 
     protected $hidden = ['created_at', 'updated_at'];
 
-    // public function kota()
-    // {
-    //     return $this->hasMany('App\City', 'id');
-    // }
+    public function kota()
+    {
+        return $this->hasMany('App\City', 'id');
+    }
 }
