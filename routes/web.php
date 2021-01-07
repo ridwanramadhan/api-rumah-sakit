@@ -19,3 +19,9 @@ Route::get('/', function () {
 
 // Route::get('api/province', 'ApiController@get_all_province');
 // Route::post('api/province/add_province', 'ApiController@insert_data_province');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/provinsi', 'ProvinceController@get_all_province')->name('provinsi');
+// Route::get('/getCity/ajax/{id}', 'ProvinceController@get_by_id');
+Route::get('/kota', 'CityController@get_all_city')->name('kota');

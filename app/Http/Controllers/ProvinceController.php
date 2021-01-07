@@ -11,22 +11,24 @@ class ProvinceController extends Controller
         // return response()->json(Province::all(), 200);
 
         $daftar_provinsi = Province::all();
-        return response([
-            'status' => true,
-            'message' => 'Daftar Provinsi',
-            'data' => $daftar_provinsi
-        ], 200);
+        return view('provinsi.index', compact('daftar_provinsi'));
+        // return response([
+        //     'status' => true,
+        //     'message' => 'Daftar Provinsi',
+        //     'data' => $daftar_provinsi
+        // ], 200);
     }
 
     public function get_by_id($id){
         // return response()->json(Province::all(), 200);
 
-        $daftar_provinsi = Province::where('id', $id)->get();
-        return response([
-            'status' => true,
-            'message' => 'Daftar Provinsi',
-            'data' => $daftar_provinsi
-        ], 200);
+        $nama_provinsi = Province::where('id', $id)->get();
+        return view('provinsi.index', compact('nama_provinsi'));
+        // return response([
+        //     'status' => true,
+        //     'message' => 'Daftar Provinsi',
+        //     'data' => $daftar_provinsi
+        // ], 200);
     }
 
     public function insert_data_province(Request $request){
