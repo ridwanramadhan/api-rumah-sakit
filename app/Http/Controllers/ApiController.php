@@ -22,7 +22,7 @@ class ApiController extends Controller
     public function get_all_city(){
         // return response()->json(Province::all(), 200);
         // $daftar_kota = City::all();
-        $daftar_kota = City::join('province', 'city.id_provinsi', '=', 'province.id')->get();
+        $daftar_kota = City::join('province', 'city.id_provinsi', '=', 'province.id')->get(['city.id', 'province.nama_provinsi', 'city.nama_kota', 'city.jenis', 'city.kode_pos']);
         // $daftar_kota = DB::table('city')
         //     ->join('province', 'city.id_provinsi', '=', 'province.id')
         //     ->select('city.*', 'province.nama_provinsi')
